@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 )
 
@@ -24,5 +25,8 @@ func loadPage(title string) (*Page, error) {
 }
 
 func main() {
-
+	page := &Page{Title: "FirstPage", Body: []byte("A fresh first page")}
+	page.save()
+	got, _ := loadPage("FirstPage")
+	fmt.Println(string(got.Body))
 }
